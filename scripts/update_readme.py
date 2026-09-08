@@ -17,7 +17,7 @@ from scripts.utils import (
     get_issue_word_count, get_issue_image_count, load_metadata,
     is_pull_request, should_include_issue,
     count_from_md_file, log_environment,
-    TOP_ISSUES_LABELS, TODO_ISSUES_LABELS,
+    TOP_ISSUES_LABELS, TODO_ISSUES_LABELS, IGNORE_LABELS,
     RECENT_ISSUE_LIMIT, BEIJING_TZ
 )
 
@@ -134,6 +134,48 @@ def add_md_recent(all_issues, me, limit=RECENT_ISSUE_LIMIT):
         raise
 
 
+def add_md_label(all_issues, labels, me):
+    """生成标签分类的Markdown字符串（内存过滤）"""
+    try:
+        labels = sorted(
+            labels,
+            key=lambda x: (
+                x.description is None,
+                x.description == "",
+                x.description,
+                x.name,
+            ),
+        )
+
+        lines = []
+        for label in labels:
+            if label.name in IGNORE_LABELS:
+                continue
+
+            # 内存过滤，不再对每个标签单独发 API 请求
+            issues_list = [i for i in all_issues if label.name in [l.name for l in i.labels]]
+            if not issues_list:
+                continue
+
+            lines.append(f"## {label.name}\n")
+            issues_list = sorted(issues_list, key=lambda x: x.updated_at, reverse=True)
+            logger.debug(f"标签 '{label.name}' 下有 {len(issues_list)} 个issue")
+
+            i = 0
+            for issue in issues_list:
+                if not issue:
+                    continue
+                if is_me(issue, me):
+                    lines.append(_add_issue_line(issue))
+                    i += 1
+            if i > 0:
+                lines.append("\n")
+        return "".join(lines)
+    except Exception as e:
+        logger.error(f"添加标签分类部分失败: {str(e)}")
+        raise
+
+
 def generate_changelog(all_issues, me):
     """生成 CHANGELOG.md — 记录非本人的 PR（Dependabot 等），独立于 README"""
     try:
@@ -245,6 +287,8 @@ def regenerate_readme(repo, repo_name, me):
 
         parts.append(add_md_top(all_issues, me))
         parts.append(add_md_todo(all_issues, me))
+        # 标签分类区块已停用：README 只保留文章列表 + 博客统计（与 master 现状一致）
+        # parts.append(add_md_label(all_issues, all_labels, me))
         parts.append(add_md_recent(all_issues, me))
 
         # 生成 CHANGELOG.md（第三方 PR 独立文档）

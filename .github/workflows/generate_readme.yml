@@ -58,7 +58,7 @@ jobs:
           python -m unittest scripts.test_utils -v
           echo "=== 所有测试通过 ==="
 
-      # ========== Step 1: 生成 posts/ 下的 .md 文件（非 schedule 时执行） ==========
+      # ========== Step 1: 按评论拆分 issue 生成 posts/ 下的 md（非 schedule 时执行） ==========
       - name: Generate issue .md files
         if: github.event_name != 'schedule'
         run: |
@@ -69,10 +69,10 @@ jobs:
 
           if [ -n "$ISSUE_NUMBER" ]; then
             echo "处理 issue #$ISSUE_NUMBER (event: ${{ github.event_name }})"
-            python scripts/generate_posts.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number $ISSUE_NUMBER
+            python scripts/split_issue_to_files.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number $ISSUE_NUMBER
           else
             echo "未指定 issue，处理所有 issue"
-            python scripts/generate_posts.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }}
+            python scripts/split_issue_to_files.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }}
           fi
 
       # ========== Step 2: 生成 README.md 和 feed.xml ==========
