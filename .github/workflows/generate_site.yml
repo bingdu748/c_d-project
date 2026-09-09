@@ -75,6 +75,9 @@ jobs:
           cd output
           zola build --base-url "$BASE_URL"
 
+          # Copy markdown viewer into built public dir (accessible as /viewer.html)
+          cp ../viewer.html public/viewer.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v6
 

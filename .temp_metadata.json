@@ -1,21 +1,21 @@
 {
   "16": {
-    "title": "「Diary」2006 & 2007",
-    "filename": "Diary-2006-&-2007",
+    "title": "「Diary」2006-2007",
+    "filename": "Diary-2006-2007",
     "label": "my-diary",
-    "updated": "2026-06-16T09:48:32+00:00",
-    "word_count": 2068,
+    "updated": "2026-09-09T15:45:39+00:00",
+    "word_count": 2058,
     "image_count": 0,
-    "split_dir": "posts/my-diary/Diary-2006-&-2007"
+    "split_dir": "posts/my-diary/Diary-2006-2007"
   },
   "14": {
-    "title": "「Diary」2002 & 2003",
-    "filename": "Diary-2002-&-2003",
+    "title": "「Diary」2002-2003",
+    "filename": "Diary-2002-2003",
     "label": "my-diary",
-    "updated": "2026-06-16T09:48:45+00:00",
-    "word_count": 2343,
+    "updated": "2026-09-09T15:45:38+00:00",
+    "word_count": 2333,
     "image_count": 0,
-    "split_dir": "posts/my-diary/Diary-2002-&-2003"
+    "split_dir": "posts/my-diary/Diary-2002-2003"
   },
   "7": {
     "title": "About Calculations",
@@ -31,7 +31,7 @@
     "filename": "About-Diary",
     "label": "the-lore",
     "updated": "2026-06-11T05:58:15+00:00",
-    "word_count": 55,
+    "word_count": 51,
     "image_count": 0,
     "split_dir": "posts/the-lore/About-Diary"
   },
@@ -39,8 +39,8 @@
     "title": "「Diary」2026",
     "filename": "Diary-2026",
     "label": "my-diary",
-    "updated": "2026-09-08T09:57:19+00:00",
-    "word_count": 97561,
+    "updated": "2026-09-09T14:16:58+00:00",
+    "word_count": 97256,
     "image_count": 1,
     "split_dir": "posts/my-diary/Diary-2026"
   },
@@ -103,18 +103,18 @@
     "filename": "Diary-2019",
     "label": "my-diary",
     "updated": "2026-09-01T06:08:53+00:00",
-    "word_count": 3933,
+    "word_count": 3928,
     "image_count": 24,
     "split_dir": "posts/my-diary/Diary-2019"
   },
   "20": {
-    "title": "「Diary」2017 & 2018",
-    "filename": "Diary-2017-&-2018",
+    "title": "「Diary」2017-2018",
+    "filename": "Diary-2017-2018",
     "label": "my-diary",
-    "updated": "2026-06-16T09:37:56+00:00",
+    "updated": "2026-09-09T15:45:40+00:00",
     "word_count": 12,
     "image_count": 0,
-    "split_dir": "posts/my-diary/Diary-2017-&-2018"
+    "split_dir": "posts/my-diary/Diary-2017-2018"
   },
   "19": {
     "title": "「Diary」2016",

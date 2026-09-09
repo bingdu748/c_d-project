@@ -338,5 +338,48 @@ class TestCrossPlatformConsistency(unittest.TestCase):
         self.assertEqual(get_content_image_count(windows_content), ic)
 
 
+class TestExtractTitleAndBody(unittest.TestCase):
+    """测试 split_issue_to_files 的评论标题/正文提取：
+    首行 H1 作为标题时，应从正文中移除该行，避免标题重复两遍"""
+
+    def setUp(self):
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+        from datetime import datetime, timezone
+        from scripts.split_issue_to_files import extract_title_and_body
+        from scripts.utils import format_time
+        self.extract = extract_title_and_body
+        self.format_time = format_time
+        self.mock_created = datetime(2026, 9, 1, 0, 0, tzinfo=timezone.utc)
+
+    def _comment(self, body):
+        c = MagicMock()
+        c.body = body
+        c.created_at = self.mock_created
+        return c
+
+    def test_h1_title_removed_from_body(self):
+        """首行 H1 提取为标题后，正文不应再包含该行"""
+        c = self._comment("# 本周小结\n\n## 日常\n正文内容\n")
+        title, body = self.extract(c)
+        self.assertEqual(title, "本周小结")
+        self.assertNotIn("# 本周小结", body)
+        self.assertIn("## 日常", body)
+        self.assertIn("正文内容", body)
+
+    def test_no_h1_falls_back_to_time(self):
+        """无 H1 时标题退回发布时间，正文原样保留"""
+        c = self._comment("## 直接二级标题开头\n内容\n")
+        title, body = self.extract(c)
+        self.assertEqual(title, self.format_time(self.mock_created))
+        self.assertIn("## 直接二级标题开头", body)
+
+    def test_h1_only_comment(self):
+        """评论只有一行 H1 时，正文回退为占位符"""
+        c = self._comment("# 只有标题\n")
+        title, body = self.extract(c)
+        self.assertEqual(title, "只有标题")
+        self.assertEqual(body, "*(无内容)*")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,6 @@
 {
   "repository": "volatile-Quartz/Dr_Wunderkammer",
-  "generated_at": "2026-09-08T17:55:50.665165+00:00",
+  "generated_at": "2026-09-09T17:04:22.340295+00:00",
   "total_issues": 18,
   "issues": [
     {
@@ -9,7 +9,7 @@
       "filename": "About-Diary",
       "label": "the-lore",
       "updated": "2026-06-11T05:58:15+00:00",
-      "word_count": 55,
+      "word_count": 51,
       "image_count": 0,
       "md_path": "posts/the-lore/About-Diary.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/1"
@@ -27,24 +27,24 @@
     },
     {
       "issue_number": 14,
-      "title": "「Diary」2002 & 2003",
-      "filename": "Diary-2002-&-2003",
+      "title": "「Diary」2002-2003",
+      "filename": "Diary-2002-2003",
       "label": "my-diary",
-      "updated": "2026-06-16T09:48:45+00:00",
-      "word_count": 2343,
+      "updated": "2026-09-09T15:45:38+00:00",
+      "word_count": 2333,
       "image_count": 0,
-      "md_path": "posts/my-diary/Diary-2002-&-2003.md",
+      "md_path": "posts/my-diary/Diary-2002-2003.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/14"
     },
     {
       "issue_number": 16,
-      "title": "「Diary」2006 & 2007",
-      "filename": "Diary-2006-&-2007",
+      "title": "「Diary」2006-2007",
+      "filename": "Diary-2006-2007",
       "label": "my-diary",
-      "updated": "2026-06-16T09:48:32+00:00",
-      "word_count": 2068,
+      "updated": "2026-09-09T15:45:39+00:00",
+      "word_count": 2058,
       "image_count": 0,
-      "md_path": "posts/my-diary/Diary-2006-&-2007.md",
+      "md_path": "posts/my-diary/Diary-2006-2007.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/16"
     },
     {
@@ -82,13 +82,13 @@
     },
     {
       "issue_number": 20,
-      "title": "「Diary」2017 & 2018",
-      "filename": "Diary-2017-&-2018",
+      "title": "「Diary」2017-2018",
+      "filename": "Diary-2017-2018",
       "label": "my-diary",
-      "updated": "2026-06-16T09:37:56+00:00",
+      "updated": "2026-09-09T15:45:40+00:00",
       "word_count": 12,
       "image_count": 0,
-      "md_path": "posts/my-diary/Diary-2017-&-2018.md",
+      "md_path": "posts/my-diary/Diary-2017-2018.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/20"
     },
     {
@@ -97,7 +97,7 @@
       "filename": "Diary-2019",
       "label": "my-diary",
       "updated": "2026-09-01T06:08:53+00:00",
-      "word_count": 3933,
+      "word_count": 3928,
       "image_count": 24,
       "md_path": "posts/my-diary/Diary-2019.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/21"
@@ -173,8 +173,8 @@
       "title": "「Diary」2026",
       "filename": "Diary-2026",
       "label": "my-diary",
-      "updated": "2026-09-08T09:57:19+00:00",
-      "word_count": 97561,
+      "updated": "2026-09-09T14:16:58+00:00",
+      "word_count": 97256,
       "image_count": 1,
       "md_path": "posts/my-diary/Diary-2026.md",
       "url": "https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/28"

@@ -62,12 +62,17 @@ def get_label_dir(issue):
 
 
 def extract_title_and_body(comment):
-    """取评论首行一级标题作为文档标题；无 H1 时退回发布时间"""
+    """取评论首行一级标题作为文档标题；无 H1 时退回发布时间
+
+    提取 H1 后从正文中移除该行，避免文件里标题出现两遍。
+    """
     body = comment.body or ""
     h1 = re.match(r'^#\s+(.+?)(?:\n|$)', body)
     if h1:
         title = h1.group(1).strip()
-        return title, body  # 正文原样保留（独立文件，不再降级内部标题）
+        # 去掉首行标题，其余正文原样保留（独立文件，内部标题不降级）
+        remaining = body[h1.end():].strip()
+        return title, remaining if remaining else "*(无内容)*"
     return format_time(comment.created_at), body
 
 
