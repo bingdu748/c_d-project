@@ -16,10 +16,13 @@ from scripts.utils import (
     logger, login, get_repo, get_me, is_me, format_time,
     get_issue_word_count, get_issue_image_count, load_metadata,
     is_pull_request, should_include_issue,
-    count_from_md_file, log_environment,
-    TOP_ISSUES_LABELS, TODO_ISSUES_LABELS, IGNORE_LABELS,
+    log_environment,
+    TOP_ISSUES_LABELS, TODO_ISSUES_LABELS,
     RECENT_ISSUE_LIMIT, BEIJING_TZ
 )
+
+# 文章列表/统计仅收录日记标签
+DIARY_LABELS = ["my-diary"]
 
 
 def _has_label(issue, labels):
@@ -29,6 +32,28 @@ def _has_label(issue, labels):
         return any(l in issue_labels for l in labels)
     except Exception:
         return False
+
+
+def _parse_dt(value):
+    """解析 isoformat 字符串或 datetime 为带时区的 datetime；失败返回 None"""
+    if value is None:
+        return None
+    if isinstance(value, str):
+        try:
+            value = datetime.fromisoformat(value)
+        except ValueError:
+            return None
+    if not isinstance(value, datetime):
+        return None
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=timezone.utc)
+    return value
+
+
+def _is_recent(value, threshold):
+    """判断时间是否在阈值之后（北京时间）"""
+    dt = _parse_dt(value)
+    return dt is not None and dt.astimezone(BEIJING_TZ) > threshold
 
 
 def _add_issue_line(issue):
@@ -78,10 +103,10 @@ def add_md_top(all_issues, me):
 
 
 def add_md_recent(all_issues, me, limit=RECENT_ISSUE_LIMIT):
-    """生成文章列表的Markdown字符串"""
+    """生成文章列表的Markdown字符串（仅展示 my-diary 标签的日记 issue）"""
     try:
-        lines = ["## 文章列表\n", "| 序号 | 文章标题 | 更新时间 | 字数统计 | 插图统计 |\n",
-                 "|:------:|:------------------:|:------------------:|:------:|:------:|\n"]
+        lines = ["## 文章列表\n", "| 序号 | 文章标题 | 更新时间 | 篇章统计 | 字数统计 | 插图统计 |\n",
+                 "|:------:|:------------------:|:------------------:|:------:|:------:|:------:|\n"]
         count = 0
         logger.debug("获取所有issue并按更新时间排序...")
         all_issues = sorted(all_issues, key=lambda x: x.updated_at, reverse=True)
@@ -91,38 +116,35 @@ def add_md_recent(all_issues, me, limit=RECENT_ISSUE_LIMIT):
         metadata = load_metadata()
 
         for issue in all_issues:
+            if not _has_label(issue, DIARY_LABELS):
+                continue
             if is_me(issue, me) and should_include_issue(issue, metadata):
                 time = format_time(issue.updated_at)
 
-                # 三层回退：.md 文件（含评论全文）→ 元数据缓存 → issue.body（无评论）
-                # 优先 .md 文件：它由 generate_posts 实时生成，比元数据缓存更不易过期
+                # 两级回退：元数据缓存（split_issue_to_files 实时写入，含评论全文）
+                # → issue.body（仅正文，无评论）。字数/图片以元数据为准。
                 issue_key = str(issue.number)
                 word_count = None
                 image_count = None
-                source = "unknown"
 
-                wc, ic = count_from_md_file(issue.number, issue.title)
-                if wc is not None:
-                    word_count = wc
-                    image_count = ic
-                    source = "md_file"
-                    logger.info(f"[STAT_SRC] #{issue.number} 使用 .md 文件: wc={word_count}, ic={image_count}")
-
-                if word_count is None and issue_key in metadata and "word_count" in metadata[issue_key]:
+                if issue_key in metadata and "word_count" in metadata[issue_key]:
                     word_count = metadata[issue_key]["word_count"]
                     image_count = metadata[issue_key].get("image_count", 0)
-                    source = "metadata"
                     logger.debug(f"[STAT_SRC] #{issue.number} 使用元数据: wc={word_count}, ic={image_count}")
 
                 if word_count is None:
                     word_count = get_issue_word_count(issue)
                     image_count = get_issue_image_count(issue)
-                    source = "issue_body"
                     logger.warning(f"[STAT_SRC] #{issue.number} 回退到 issue.body: wc={word_count}, ic={image_count}")
+
+                # 篇章统计：正文 1 篇 + 评论条数（评论按各自一篇计）
+                piece_count = 1
+                if issue_key in metadata:
+                    piece_count += metadata[issue_key].get("comment_count", 0)
 
                 lines.append(
                     f"| {count + 1} | [{issue.title}]({issue.html_url}) "
-                    f"| {time} | {word_count} | {image_count} |\n"
+                    f"| {time} | {piece_count} | {word_count} | {image_count} |\n"
                 )
                 count += 1
                 if count >= limit:
@@ -131,48 +153,6 @@ def add_md_recent(all_issues, me, limit=RECENT_ISSUE_LIMIT):
         return "".join(lines)
     except Exception as e:
         logger.error(f"添加最近更新部分失败: {str(e)}")
-        raise
-
-
-def add_md_label(all_issues, labels, me):
-    """生成标签分类的Markdown字符串（内存过滤）"""
-    try:
-        labels = sorted(
-            labels,
-            key=lambda x: (
-                x.description is None,
-                x.description == "",
-                x.description,
-                x.name,
-            ),
-        )
-
-        lines = []
-        for label in labels:
-            if label.name in IGNORE_LABELS:
-                continue
-
-            # 内存过滤，不再对每个标签单独发 API 请求
-            issues_list = [i for i in all_issues if label.name in [l.name for l in i.labels]]
-            if not issues_list:
-                continue
-
-            lines.append(f"## {label.name}\n")
-            issues_list = sorted(issues_list, key=lambda x: x.updated_at, reverse=True)
-            logger.debug(f"标签 '{label.name}' 下有 {len(issues_list)} 个issue")
-
-            i = 0
-            for issue in issues_list:
-                if not issue:
-                    continue
-                if is_me(issue, me):
-                    lines.append(_add_issue_line(issue))
-                    i += 1
-            if i > 0:
-                lines.append("\n")
-        return "".join(lines)
-    except Exception as e:
-        logger.error(f"添加标签分类部分失败: {str(e)}")
         raise
 
 
@@ -275,20 +255,18 @@ def regenerate_readme(repo, repo_name, me):
         log_environment()
         logger.info("开始重新生成README.md...")
 
-        # 一次性拉取全部 issue 与标签，后续各模块内存过滤，避免重复 API 请求
+        # 一次性拉取全部 issue，后续各模块内存过滤，避免重复 API 请求
         all_issues = list(repo.get_issues(state='all'))
-        all_labels = list(repo.get_labels())
-        logger.info(f"一次性拉取 {len(all_issues)} 个 issue, {len(all_labels)} 个标签")
+        logger.info(f"一次性拉取 {len(all_issues)} 个 issue")
 
         # 在内存拼装完整内容：开头简介 + 各区块 + 博客统计
         parts = []
         parts.append("> 记录自我，留存活过的痕迹。\n>\n")
-        parts.append("> 人总想留下痕迹，证明自己活过。信息时代里，被数字化的东西只会越来越多——数字不会风化，也不会被遗忘。人有两次死亡：第一次是肉体，第二次是被遗忘。我选择把自己的日记与思考搬来这里，只为让第二次死亡来得晚一些。\n\n")
+        parts.append("> 人总想留下痕迹，证明自己活过。信息时代里，被数字化的东西只会越来越多——数字不会风化，也不会被遗忘。人有两次死亡：第一次是肉体，第二次是被遗忘。我选择把自己的日记与思考搬来这里，只为让第二次死亡来得晚一些。\n>\n")
+        parts.append("> 文章的篇章数量按「周记/月记」逐篇统计：同一合集下的每条周记/月记各计一篇，一篇文章即一个日记单元。\n\n")
 
         parts.append(add_md_top(all_issues, me))
         parts.append(add_md_todo(all_issues, me))
-        # 标签分类区块已停用：README 只保留文章列表 + 博客统计（与 master 现状一致）
-        # parts.append(add_md_label(all_issues, all_labels, me))
         parts.append(add_md_recent(all_issues, me))
 
         # 生成 CHANGELOG.md（第三方 PR 独立文档）
@@ -298,40 +276,59 @@ def regenerate_readme(repo, repo_name, me):
         beijing_now = datetime.now(BEIJING_TZ)
         update_time = beijing_now.strftime("%Y-%m-%d %H:%M:%S")
 
-        my_issues = [issue for issue in all_issues if is_me(issue, me) and not is_pull_request(issue)]
-        total_articles = len(my_issues)
+        my_issues = [
+            issue for issue in all_issues
+            if is_me(issue, me) and not is_pull_request(issue) and _has_label(issue, DIARY_LABELS)
+        ]
+        year_count = len(my_issues)
 
         # 优先从元数据读取（含评论），回退到仅统计 issue.body
         metadata = load_metadata()
         total_word_count = 0
         total_image_count = 0
+        total_pieces = 0            # 总篇数：每 issue 正文 1 篇 + 每条评论 1 篇
+        recent_created = 0          # 24 小时内的新增篇数（按篇）
+        recent_updated = 0          # 24 小时内的更新篇数（按篇）
+        recent_threshold = beijing_now - timedelta(hours=24)
         for issue in my_issues:
             issue_key = str(issue.number)
-            if issue_key in metadata and "word_count" in metadata[issue_key]:
-                total_word_count += metadata[issue_key]["word_count"]
-                total_image_count += metadata[issue_key].get("image_count", 0)
+            info = metadata.get(issue_key, {})
+            comments = info.get("comments", [])
+
+            if "word_count" in info:
+                total_word_count += info["word_count"]
+                total_image_count += info.get("image_count", 0)
             else:
                 total_word_count += get_issue_word_count(issue)
                 total_image_count += get_issue_image_count(issue)
 
-        # 最近24小时内的新增和更新
-        recent_threshold = beijing_now - timedelta(hours=24)
-        recent_updated = [
-            issue for issue in my_issues
-            if issue.updated_at.replace(tzinfo=timezone.utc).astimezone(BEIJING_TZ) > recent_threshold
-        ]
-        recent_created = [
-            issue for issue in my_issues
-            if issue.created_at.replace(tzinfo=timezone.utc).astimezone(BEIJING_TZ) > recent_threshold
-        ]
+            # 篇数：正文 1 篇 + 评论数
+            total_pieces += 1 + len(comments)
+
+            # 新增/更新篇数：评论按各自评论时间戳，正文按 issue 时间戳
+            # 注意：issue.updated_at 会随评论变化联动更新，
+            # 若该 issue 已有评论在 24h 内更新，正文篇不重复计入更新
+            has_recent_comment_update = any(
+                _is_recent(cm.get("updated_at"), recent_threshold) for cm in comments
+            )
+            for cm in comments:
+                if _is_recent(cm.get("created_at"), recent_threshold):
+                    recent_created += 1
+                if _is_recent(cm.get("updated_at"), recent_threshold):
+                    recent_updated += 1
+            if _is_recent(issue.created_at, recent_threshold):
+                recent_created += 1
+            if _is_recent(issue.updated_at, recent_threshold) and not has_recent_comment_update:
+                recent_updated += 1
 
         parts.append("\n\n## 博客统计\n")
-        parts.append(f"- 最后更新: {update_time}\n")
-        parts.append(f"- 总文章数: {total_articles}\n")
-        parts.append(f"- 新增文章: {len(recent_created)}\n")
-        parts.append(f"- 更新文章: {len(recent_updated)}\n")
-        parts.append(f"- 总字数: {total_word_count}\n")
-        parts.append(f"- 总插图数: {total_image_count}\n")
+        parts.append(f"- 年份合集：{year_count} 个\n")
+        parts.append(f"- 周记/月记：{total_pieces} 篇\n")
+        parts.append(f"- 新增篇章：{recent_created}\n")
+        parts.append(f"- 更新篇章：{recent_updated}\n")
+        parts.append(f"- 总字数：{total_word_count}\n")
+        parts.append(f"- 总插图数：{total_image_count}\n")
+        parts.append(f"- 最后更新：{update_time}\n")
 
         new_content = "".join(parts)
 

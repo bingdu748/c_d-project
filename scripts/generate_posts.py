@@ -230,22 +230,44 @@ def export_json(repo_name):
                 "updated": info.get("updated", ""),
                 "word_count": info.get("word_count", 0),
                 "image_count": info.get("image_count", 0),
-                "md_path": os.path.join(POSTS_DIR, info.get("label", "no-label"),
-                                        f"{info.get('filename', '')}.md"),
                 "url": f"https://github.com/{repo_name}/issues/{issue_number}"
             }
 
-            # 尝试读取对应的 .md 文件内容
-            md_path = os.path.join(
-                POSTS_DIR, info.get("label", "no-label"),
-                f"{info.get('filename', '')}.md"
-            )
-            if os.path.exists(md_path):
+            # 新结构：按评论拆分到 posts/<label>/<issue标题slug>/ 目录
+            # 旧结构：单文件 posts/<label>/<filename>.md（兼容历史数据）
+            md_path = None
+            split_dir = info.get("split_dir")
+            if split_dir and os.path.isdir(split_dir):
+                issue_entry["md_path"] = split_dir
+                # 拼接该 issue 目录下全部 .md（含 00_index.md 与评论文件）
+                md_files = sorted(
+                    os.path.join(split_dir, f)
+                    for f in os.listdir(split_dir)
+                    if f.endswith(".md")
+                )
                 try:
-                    with open(md_path, "r", encoding="utf-8") as f:
-                        issue_entry["content"] = f.read()
+                    content_parts = []
+                    for fp in md_files:
+                        with open(fp, "r", encoding="utf-8") as f:
+                            content_parts.append(f.read())
+                    issue_entry["content"] = "\n\n".join(content_parts)
                 except Exception as e:
-                    logger.warning(f"读取 {md_path} 失败: {e}")
+                    logger.warning(f"读取 {split_dir} 失败: {e}")
+                    issue_entry["content"] = ""
+            else:
+                md_path = os.path.join(
+                    POSTS_DIR, info.get("label", "no-label"),
+                    f"{info.get('filename', '')}.md"
+                )
+                issue_entry["md_path"] = md_path
+                if os.path.exists(md_path):
+                    try:
+                        with open(md_path, "r", encoding="utf-8") as f:
+                            issue_entry["content"] = f.read()
+                    except Exception as e:
+                        logger.warning(f"读取 {md_path} 失败: {e}")
+                        issue_entry["content"] = ""
+                else:
                     issue_entry["content"] = ""
 
             export["issues"].append(issue_entry)
