@@ -5,14 +5,14 @@
     <link>https://github.com/volatile-Quartz/Dr_Wunderkammer</link>
     <description>Blog generated from GitHub issues</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Sep 2026 00:17:46 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 01:45:14 GMT</lastBuildDate>
 
     <item>
         <title>「Diary」2025</title>
         <link>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/27</link>
         <description>存放2025年的日记。
 整理中..</description>
-        <pubDate>Thu, 10 Sep 2026 16:17:16 GMT</pubDate>
+        <pubDate>Fri, 11 Sep 2026 09:34:37 GMT</pubDate>
         <guid>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/27</guid>
     </item>
 
@@ -22,8 +22,16 @@
         <description>存放2026年的日记。
 整理中..
 </description>
-        <pubDate>Thu, 10 Sep 2026 06:21:50 GMT</pubDate>
+        <pubDate>Fri, 11 Sep 2026 06:12:11 GMT</pubDate>
         <guid>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/28</guid>
+    </item>
+
+    <item>
+        <title>About Diary</title>
+        <link>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/1</link>
+        <description>关于日记的设定，我需要建立一个说明文档，以防止我今后忘记。</description>
+        <pubDate>Fri, 11 Sep 2026 05:48:37 GMT</pubDate>
+        <guid>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/1</guid>
     </item>
 
     <item>
@@ -166,14 +174,6 @@
 - 能背下整个元素周期表</description>
         <pubDate>Thu, 11 Jun 2026 06:00:13 GMT</pubDate>
         <guid>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/7</guid>
-    </item>
-
-    <item>
-        <title>About Diary</title>
-        <link>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/1</link>
-        <description>关于日记的设定，我需要建立一个说明文档，以防止我今后忘记。</description>
-        <pubDate>Thu, 11 Jun 2026 05:58:15 GMT</pubDate>
-        <guid>https://github.com/volatile-Quartz/Dr_Wunderkammer/issues/1</guid>
     </item>
 
 </channel>

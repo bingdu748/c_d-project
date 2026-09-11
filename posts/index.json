@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T16:17:46.920586+00:00",
+  "generated_at": "2026-09-11T17:45:14.580155+00:00",
   "entries": [
     {
       "path": "my-diary/Diary-2021/00_index.md",
@@ -23,19 +23,19 @@
       "path": "my-diary/Diary-2025/00_index.md",
       "title": "「Diary」2025",
       "label": "my-diary/Diary-2025",
-      "word_count": 1155,
+      "word_count": 1187,
       "image_count": 0,
-      "file_size": 7519,
-      "sha256_short": "6a88bec061e09bc7"
+      "file_size": 7723,
+      "sha256_short": "7adc5a8395ad6ce1"
     },
     {
       "path": "my-diary/Diary-2025/01_第1周（2024.12.30-2025.01.05）儒略历与格里高利历.md",
       "title": "第1周（2024.12.30-2025.01.05）儒略历与格里高利历",
       "label": "my-diary/Diary-2025",
-      "word_count": 952,
+      "word_count": 957,
       "image_count": 0,
-      "file_size": 3053,
-      "sha256_short": "ca4b8192154e0da6"
+      "file_size": 3038,
+      "sha256_short": "a7637f870b463773"
     },
     {
       "path": "my-diary/Diary-2025/02_第2周（2025.01.06-2025.01.12）.md",
@@ -50,109 +50,109 @@
       "path": "my-diary/Diary-2025/03_第3周（2025.01.13-2025.01.19）.md",
       "title": "第3周（2025.01.13-2025.01.19）",
       "label": "my-diary/Diary-2025",
-      "word_count": 621,
+      "word_count": 642,
       "image_count": 0,
-      "file_size": 2326,
-      "sha256_short": "0703557574e2ee79"
+      "file_size": 2436,
+      "sha256_short": "01183bcc4c434ec0"
     },
     {
       "path": "my-diary/Diary-2025/04_第4周（2025.01.20-2025.01.26）.md",
       "title": "第4周（2025.01.20-2025.01.26）",
       "label": "my-diary/Diary-2025",
-      "word_count": 532,
+      "word_count": 527,
       "image_count": 0,
-      "file_size": 1717,
-      "sha256_short": "95a54cf6d0b88adb"
+      "file_size": 1722,
+      "sha256_short": "bb51866ce7ac36c7"
     },
     {
       "path": "my-diary/Diary-2025/05_第5周（2025.01.27-2025.02.02）扑克与麻将.md",
       "title": "第5周（2025.01.27-2025.02.02）扑克与麻将",
       "label": "my-diary/Diary-2025",
-      "word_count": 2113,
+      "word_count": 2091,
       "image_count": 0,
-      "file_size": 6739,
-      "sha256_short": "b6ddae0464dd530f"
+      "file_size": 6878,
+      "sha256_short": "22d193a2e9ab1f72"
     },
     {
       "path": "my-diary/Diary-2025/06_第6周（2025.02.03-2025.02.09）科里奥利力.md",
       "title": "第6周（2025.02.03-2025.02.09）科里奥利力",
       "label": "my-diary/Diary-2025",
-      "word_count": 1557,
+      "word_count": 1546,
       "image_count": 0,
-      "file_size": 4736,
-      "sha256_short": "ae21e2df1c5d03c7"
+      "file_size": 4771,
+      "sha256_short": "138b3366cc44023e"
     },
     {
       "path": "my-diary/Diary-2025/07_第7周（2025.02.10-2025.02.16）傅科摆.md",
       "title": "第7周（2025.02.10-2025.02.16）傅科摆",
       "label": "my-diary/Diary-2025",
-      "word_count": 1138,
+      "word_count": 1146,
       "image_count": 0,
-      "file_size": 3609,
-      "sha256_short": "75bae03feec575cc"
+      "file_size": 3593,
+      "sha256_short": "42bbde792f6bffa9"
     },
     {
       "path": "my-diary/Diary-2025/08_第8周（2025.02.17-2025.02.23）.md",
       "title": "第8周（2025.02.17-2025.02.23）",
       "label": "my-diary/Diary-2025",
-      "word_count": 367,
+      "word_count": 362,
       "image_count": 0,
       "file_size": 1218,
-      "sha256_short": "3c8f79e3ccab36b6"
+      "sha256_short": "1b7d009ff7d509f3"
     },
     {
       "path": "my-diary/Diary-2025/09_第9周（2025.02.24-2025.03.02）奈氏准则与香农定理.md",
       "title": "第9周（2025.02.24-2025.03.02）奈氏准则与香农定理",
       "label": "my-diary/Diary-2025",
-      "word_count": 808,
+      "word_count": 961,
       "image_count": 0,
-      "file_size": 2643,
-      "sha256_short": "c2c482879205fb01"
+      "file_size": 3153,
+      "sha256_short": "c9ae65f0c752e2bc"
     },
     {
       "path": "my-diary/Diary-2025/10_第10周（2025.03.03-2025.03.09）.md",
       "title": "第10周（2025.03.03-2025.03.09）",
       "label": "my-diary/Diary-2025",
-      "word_count": 300,
+      "word_count": 296,
       "image_count": 0,
-      "file_size": 1037,
-      "sha256_short": "7a5da3d535664aa0"
+      "file_size": 1045,
+      "sha256_short": "3681ae0e4306c86a"
     },
     {
       "path": "my-diary/Diary-2025/11_第11周（2025.03.10-2025.03.16）恩格勒系统与哈钦松系统.md",
       "title": "第11周（2025.03.10-2025.03.16）恩格勒系统与哈钦松系统",
       "label": "my-diary/Diary-2025",
-      "word_count": 1015,
+      "word_count": 1017,
       "image_count": 0,
-      "file_size": 3148,
-      "sha256_short": "121156cc3d67b380"
+      "file_size": 3152,
+      "sha256_short": "27ca3f9cc0716da4"
     },
     {
       "path": "my-diary/Diary-2025/12_第12周（2025.03.17-2025.03.23）南北回归线.md",
       "title": "第12周（2025.03.17-2025.03.23）南北回归线",
       "label": "my-diary/Diary-2025",
-      "word_count": 1100,
+      "word_count": 1104,
       "image_count": 0,
-      "file_size": 3444,
-      "sha256_short": "cc234faa9bda7627"
+      "file_size": 3462,
+      "sha256_short": "1cfec3d2090ee7c1"
     },
     {
       "path": "my-diary/Diary-2025/13_第13周（2025.03.24-2025.03.30）.md",
       "title": "第13周（2025.03.24-2025.03.30）",
       "label": "my-diary/Diary-2025",
-      "word_count": 424,
+      "word_count": 958,
       "image_count": 0,
-      "file_size": 1382,
-      "sha256_short": "72c422a7a0f52143"
+      "file_size": 3491,
+      "sha256_short": "1b8540d285f70335"
     },
     {
       "path": "my-diary/Diary-2025/14_第14周（2025.03.31-2025.04.06）波尔文积分.md",
       "title": "第14周（2025.03.31-2025.04.06）波尔文积分",
       "label": "my-diary/Diary-2025",
-      "word_count": 525,
+      "word_count": 1382,
       "image_count": 0,
-      "file_size": 1725,
-      "sha256_short": "d5a4f5e8dfc5d55a"
+      "file_size": 4733,
+      "sha256_short": "43323dd6076a2a54"
     },
     {
       "path": "my-diary/Diary-2025/15_第15周（2025.04.07-2025.04.13）热电阻与热电偶.md",
@@ -160,8 +160,8 @@
       "label": "my-diary/Diary-2025",
       "word_count": 542,
       "image_count": 0,
-      "file_size": 1874,
-      "sha256_short": "6a46fc4b7cdcfea0"
+      "file_size": 1938,
+      "sha256_short": "5d352eeccc551ed9"
     },
     {
       "path": "my-diary/Diary-2025/16_第16周（2025.04.14-2025.04.20）.md",
@@ -176,46 +176,46 @@
       "path": "my-diary/Diary-2025/17_第17周（2025.04.21-2025.04.27）.md",
       "title": "第17周（2025.04.21-2025.04.27）",
       "label": "my-diary/Diary-2025",
-      "word_count": 439,
+      "word_count": 465,
       "image_count": 0,
-      "file_size": 1577,
-      "sha256_short": "153146c0cee7f32f"
+      "file_size": 1739,
+      "sha256_short": "0e8a54f2e05d8bd9"
     },
     {
       "path": "my-diary/Diary-2025/18_第18周（2025.04.28-2025.05.04）.md",
       "title": "第18周（2025.04.28-2025.05.04）",
       "label": "my-diary/Diary-2025",
-      "word_count": 154,
+      "word_count": 165,
       "image_count": 0,
-      "file_size": 516,
-      "sha256_short": "419a4c69587fb030"
+      "file_size": 603,
+      "sha256_short": "de5d37c8eaf928d7"
     },
     {
       "path": "my-diary/Diary-2025/19_第19周（2025.05.05-2025.05.11）.md",
       "title": "第19周（2025.05.05-2025.05.11）",
       "label": "my-diary/Diary-2025",
-      "word_count": 827,
+      "word_count": 836,
       "image_count": 0,
-      "file_size": 2686,
-      "sha256_short": "738257399b10418c"
+      "file_size": 2760,
+      "sha256_short": "dd22823d94b49945"
     },
     {
       "path": "my-diary/Diary-2025/20_第20周（2025.05.12-2025.05.18）.md",
       "title": "第20周（2025.05.12-2025.05.18）",
       "label": "my-diary/Diary-2025",
-      "word_count": 526,
+      "word_count": 532,
       "image_count": 0,
-      "file_size": 1641,
-      "sha256_short": "783940caf6b38c9f"
+      "file_size": 1696,
+      "sha256_short": "c0b27732b79a1a3d"
     },
     {
       "path": "my-diary/Diary-2025/21_第21周（2025.05.19-2025.05.25）世界计量日与米制公约.md",
       "title": "第21周（2025.05.19-2025.05.25）世界计量日与米制公约",
       "label": "my-diary/Diary-2025",
-      "word_count": 598,
+      "word_count": 609,
       "image_count": 0,
-      "file_size": 1949,
-      "sha256_short": "e40836fdc5fe982e"
+      "file_size": 2036,
+      "sha256_short": "20080c29a9da4846"
     },
     {
       "path": "my-diary/Diary-2025/22_第22周（2025.05.26-2025.06.01）APIPA.md",
@@ -230,10 +230,10 @@
       "path": "my-diary/Diary-2025/23_第23周（2025.06.02-2025.06.08）贝塞尔公式与贝塞尔函数.md",
       "title": "第23周（2025.06.02-2025.06.08）贝塞尔公式与贝塞尔函数",
       "label": "my-diary/Diary-2025",
-      "word_count": 808,
+      "word_count": 840,
       "image_count": 0,
-      "file_size": 2578,
-      "sha256_short": "2ab368c9aedb9a1b"
+      "file_size": 2811,
+      "sha256_short": "18627dc0888dad4e"
     },
     {
       "path": "my-diary/Diary-2025/24_第24周（2025.06.09-2025.06.15）韦伯-费希纳定律、考试与选举.md",
@@ -248,10 +248,10 @@
       "path": "my-diary/Diary-2025/25_第25周（2025.06.16-2025.06.22）CFOP.md",
       "title": "第25周（2025.06.16-2025.06.22）CFOP",
       "label": "my-diary/Diary-2025",
-      "word_count": 680,
+      "word_count": 857,
       "image_count": 0,
-      "file_size": 2314,
-      "sha256_short": "20596521509d7ae7"
+      "file_size": 2862,
+      "sha256_short": "aaa8c520e43550f6"
     },
     {
       "path": "my-diary/Diary-2025/26_第26周（2025.06.23-2025.06.29）降阶法.md",
@@ -266,19 +266,19 @@
       "path": "my-diary/Diary-2025/27_第27周（2025.06.30-2025.07.06）EIA-TIA-568.md",
       "title": "第27周（2025.06.30-2025.07.06）EIA/TIA-568",
       "label": "my-diary/Diary-2025",
-      "word_count": 764,
+      "word_count": 872,
       "image_count": 0,
-      "file_size": 2554,
-      "sha256_short": "67187ad613609c31"
+      "file_size": 2892,
+      "sha256_short": "080e2f8022d62809"
     },
     {
       "path": "my-diary/Diary-2025/28_第28周（2025.07.07-2025.07.13）.md",
       "title": "第28周（2025.07.07-2025.07.13）",
       "label": "my-diary/Diary-2025",
-      "word_count": 65,
+      "word_count": 339,
       "image_count": 0,
-      "file_size": 336,
-      "sha256_short": "18a4ab2364d79eb2"
+      "file_size": 1167,
+      "sha256_short": "32a25bf24aad0b13"
     },
     {
       "path": "my-diary/Diary-2025/29_第29周（2025.07.14-2025.07.20）.md",
@@ -293,127 +293,127 @@
       "path": "my-diary/Diary-2025/30_第30周（2025.07.21-2025.07.27）山椒鱼.md",
       "title": "第30周（2025.07.21-2025.07.27）山椒鱼",
       "label": "my-diary/Diary-2025",
-      "word_count": 773,
+      "word_count": 989,
       "image_count": 0,
-      "file_size": 2488,
-      "sha256_short": "d243e717bcf59c6b"
+      "file_size": 3172,
+      "sha256_short": "d08fe38381faa4ce"
     },
     {
       "path": "my-diary/Diary-2025/31_第31周（2025.07.28-2025.08.03）余子式与代数余子式.md",
       "title": "第31周（2025.07.28-2025.08.03）余子式与代数余子式",
       "label": "my-diary/Diary-2025",
-      "word_count": 600,
+      "word_count": 767,
       "image_count": 0,
-      "file_size": 2382,
-      "sha256_short": "d722fea16712b884"
+      "file_size": 2896,
+      "sha256_short": "7014423e65c65f72"
     },
     {
       "path": "my-diary/Diary-2025/32_第32周（2025.08.04-2025.08.10）实景演艺.md",
       "title": "第32周（2025.08.04-2025.08.10）实景演艺",
       "label": "my-diary/Diary-2025",
-      "word_count": 282,
+      "word_count": 457,
       "image_count": 0,
-      "file_size": 904,
-      "sha256_short": "159f51abf0c8e3de"
+      "file_size": 1439,
+      "sha256_short": "b0fd6e75c65a82df"
     },
     {
       "path": "my-diary/Diary-2025/33_第33周（2025.08.11-2025.08.17）.md",
       "title": "第33周（2025.08.11-2025.08.17）",
       "label": "my-diary/Diary-2025",
-      "word_count": 148,
+      "word_count": 417,
       "image_count": 0,
-      "file_size": 583,
-      "sha256_short": "c18a3c767d8c8f9b"
+      "file_size": 1416,
+      "sha256_short": "a239b9dbae12931c"
     },
     {
       "path": "my-diary/Diary-2025/34_第34周（2025.08.18-2025.08.24）.md",
       "title": "第34周（2025.08.18-2025.08.24）",
       "label": "my-diary/Diary-2025",
-      "word_count": 179,
+      "word_count": 336,
       "image_count": 0,
-      "file_size": 711,
-      "sha256_short": "6afadbd24254fe96"
+      "file_size": 1184,
+      "sha256_short": "0b6dbb7bc6a092ae"
     },
     {
       "path": "my-diary/Diary-2025/35_第35周（2025.08.25-2025.08.31）.md",
       "title": "第35周（2025.08.25-2025.08.31）",
       "label": "my-diary/Diary-2025",
-      "word_count": 356,
+      "word_count": 485,
       "image_count": 0,
-      "file_size": 1308,
-      "sha256_short": "84bc5139dbf5559c"
+      "file_size": 1705,
+      "sha256_short": "5c7f4816c1f8a758"
     },
     {
       "path": "my-diary/Diary-2025/36_第36周（2025.09.01-2025.09.07）.md",
       "title": "第36周（2025.09.01-2025.09.07）",
       "label": "my-diary/Diary-2025",
-      "word_count": 350,
+      "word_count": 393,
       "image_count": 0,
-      "file_size": 1286,
-      "sha256_short": "5b048b0aa624235e"
+      "file_size": 1482,
+      "sha256_short": "fe21d2efeb078b9a"
     },
     {
       "path": "my-diary/Diary-2025/37_第37周（2025.09.08-2025.09.14）.md",
       "title": "第37周（2025.09.08-2025.09.14）",
       "label": "my-diary/Diary-2025",
-      "word_count": 256,
+      "word_count": 362,
       "image_count": 0,
-      "file_size": 1043,
-      "sha256_short": "8d2e5f09ac7fce76"
+      "file_size": 1319,
+      "sha256_short": "77eed8f7e1ab25ed"
     },
     {
       "path": "my-diary/Diary-2025/38_第38周（2025.09.15-2025.09.21）.md",
       "title": "第38周（2025.09.15-2025.09.21）",
       "label": "my-diary/Diary-2025",
-      "word_count": 1243,
+      "word_count": 1425,
       "image_count": 0,
-      "file_size": 4003,
-      "sha256_short": "9b730f157754749c"
+      "file_size": 4719,
+      "sha256_short": "9a52b2488a2e4d67"
     },
     {
       "path": "my-diary/Diary-2025/39_第39周（2025.09.22-2025.09.28）内部类.md",
       "title": "第39周（2025.09.22-2025.09.28）内部类",
       "label": "my-diary/Diary-2025",
-      "word_count": 2052,
+      "word_count": 1870,
       "image_count": 0,
-      "file_size": 7809,
-      "sha256_short": "f5502b821d06b746"
+      "file_size": 6871,
+      "sha256_short": "dc810928c39ca814"
     },
     {
       "path": "my-diary/Diary-2025/40_第40周（2025.09.29-2025.10.05）被动语态与黏着语.md",
       "title": "第40周（2025.09.29-2025.10.05）被动语态与黏着语",
       "label": "my-diary/Diary-2025",
-      "word_count": 1884,
+      "word_count": 2180,
       "image_count": 0,
-      "file_size": 7383,
-      "sha256_short": "82a5fb17a656cd7e"
+      "file_size": 8055,
+      "sha256_short": "0f2e0b0b0bae5f93"
     },
     {
       "path": "my-diary/Diary-2025/41_第41周（2025.10.06-2025.10.12）全字母句.md",
       "title": "第41周（2025.10.06-2025.10.12）全字母句",
       "label": "my-diary/Diary-2025",
-      "word_count": 2262,
+      "word_count": 1345,
       "image_count": 0,
-      "file_size": 9486,
-      "sha256_short": "a8e256fb9e9526de"
+      "file_size": 4963,
+      "sha256_short": "bdc572070a1236d2"
     },
     {
       "path": "my-diary/Diary-2025/42_第42周（2025.10.13-2025.10.19）.md",
       "title": "第42周（2025.10.13-2025.10.19）",
       "label": "my-diary/Diary-2025",
-      "word_count": 953,
+      "word_count": 898,
       "image_count": 0,
-      "file_size": 4504,
-      "sha256_short": "ba373d9296515628"
+      "file_size": 4298,
+      "sha256_short": "34691171d38f34ce"
     },
     {
       "path": "my-diary/Diary-2025/43_第43周（2025.10.20-2025.10.26）蜗牛牙齿、哈夫曼树与芬威克树、落叶乔木.md",
       "title": "第43周（2025.10.20-2025.10.26）蜗牛牙齿、哈夫曼树与芬威克树、落叶乔木",
       "label": "my-diary/Diary-2025",
-      "word_count": 2436,
+      "word_count": 2330,
       "image_count": 0,
-      "file_size": 8064,
-      "sha256_short": "680bc40d082d2a56"
+      "file_size": 7704,
+      "sha256_short": "53c0283c51e61aa2"
     },
     {
       "path": "my-diary/Diary-2025/44_第44周（2025.10.27-2025.11.02）蛞蝓的哲理.md",
@@ -455,10 +455,10 @@
       "path": "my-diary/Diary-2025/48_第48周（2025.11.24-2025.11.30）阿拉克涅.md",
       "title": "第48周（2025.11.24-2025.11.30）阿拉克涅",
       "label": "my-diary/Diary-2025",
-      "word_count": 694,
+      "word_count": 921,
       "image_count": 0,
-      "file_size": 2227,
-      "sha256_short": "b9fbc4b387c710ca"
+      "file_size": 3110,
+      "sha256_short": "1f575c9dbceb433a"
     },
     {
       "path": "my-diary/Diary-2025/49_第49周（2025.12.01-2025.12.07）疼痛式拍照法.md",
@@ -495,6 +495,24 @@
       "image_count": 0,
       "file_size": 10778,
       "sha256_short": "b9d3d6a743139498"
+    },
+    {
+      "path": "my-diary/Diary-2025/53_附录1：音乐作品汇总.md",
+      "title": "附录1：音乐作品汇总",
+      "label": "my-diary/Diary-2025",
+      "word_count": 4688,
+      "image_count": 0,
+      "file_size": 28333,
+      "sha256_short": "fa263ac76cc19172"
+    },
+    {
+      "path": "my-diary/Diary-2025/54_附录2：影视作品汇总.md",
+      "title": "附录2：影视作品汇总",
+      "label": "my-diary/Diary-2025",
+      "word_count": 2100,
+      "image_count": 0,
+      "file_size": 9488,
+      "sha256_short": "392c43efb26d61ca"
     },
     {
       "path": "my-diary/Diary-2020/00_index.md",
@@ -557,7 +575,7 @@
       "word_count": 769,
       "image_count": 0,
       "file_size": 5019,
-      "sha256_short": "c769be9657cb5e44"
+      "sha256_short": "008e27c5a08c71ef"
     },
     {
       "path": "my-diary/Diary-2026/01_第1周（2025.12.29-2026.01.04）元旦.md",
@@ -878,10 +896,10 @@
       "path": "my-diary/Diary-2026/36_第37周（2026.09.07-2026.09.13）.md",
       "title": "第37周（2026.09.07-2026.09.13）",
       "label": "my-diary/Diary-2026",
-      "word_count": 730,
+      "word_count": 836,
       "image_count": 0,
-      "file_size": 3901,
-      "sha256_short": "dafd83c2885b988b"
+      "file_size": 4496,
+      "sha256_short": "e97f471fff9615a7"
     },
     {
       "path": "my-diary/Diary-2015/00_index.md",
@@ -1034,17 +1052,17 @@
       "word_count": 74,
       "image_count": 0,
       "file_size": 405,
-      "sha256_short": "69998dd6605521c5"
+      "sha256_short": "0e36b164ccdb727d"
     },
     {
       "path": "the-lore/About-Diary/01_人物设定.md",
       "title": "人物设定",
       "label": "the-lore/About-Diary",
-      "word_count": 22,
+      "word_count": 27,
       "image_count": 0,
-      "file_size": 152,
-      "sha256_short": "c67dff3d43f17518"
+      "file_size": 204,
+      "sha256_short": "390b67e0c34ee7c6"
     }
   ],
-  "total_files": 116
+  "total_files": 118
 }
